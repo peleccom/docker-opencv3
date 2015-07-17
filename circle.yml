@@ -9,7 +9,7 @@ dependencies:
 
 test:
   override:
-    - docker run -ti --rm -v $(pwd):/cv philipz/opencv3_python2.7 /bin/sh -c 'cd /cv; python find_game.py'
+    - docker run -ti -v $(pwd):/cv philipz/opencv3_python2.7 /bin/sh -c 'cd /cv; python find_game.py'
 
 deployment:
   hub:
