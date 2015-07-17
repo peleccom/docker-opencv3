@@ -20,13 +20,6 @@ RUN cd /opencv_contrib && git checkout 3.0.0
 RUN mkdir /opencv/build
 WORKDIR /opencv/build
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
-	-D CMAKE_INSTALL_PREFIX=/usr/local \
-	-D INSTALL_C_EXAMPLES=ON \
-	-D INSTALL_PYTHON_EXAMPLES=ON \
-	-D OPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules \
-	-D WITH_IPP=OFF \
-	-D BUILD_EXAMPLES=ON ..
-RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D BUILD_PYTHON_SUPPORT=ON \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
 	-D INSTALL_C_EXAMPLES=ON \
