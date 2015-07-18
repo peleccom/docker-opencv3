@@ -16,7 +16,7 @@ RUN pip install numpy
 RUN wget https://github.com/Itseez/opencv/archive/3.0.0.zip -O opencv3.zip && \
     unzip -q opencv3.zip && mv /opencv-3.0.0 /opencv
 RUN wget https://github.com/Itseez/opencv_contrib/archive/3.0.0.zip -O opencv_contrib3.zip && \
-    unzip -q opencv_contrib3.zip && /opencv_contrib-3.0.0 /opencv_contrib
+    unzip -q opencv_contrib3.zip && mv /opencv_contrib-3.0.0 /opencv_contrib
 RUN mkdir /opencv/build
 WORKDIR /opencv/build
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
