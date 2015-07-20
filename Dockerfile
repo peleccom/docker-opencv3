@@ -6,17 +6,17 @@ ENV NUM_CORES 4
 
 # Install OpenCV 3.0
 RUN apt-get -y update
-RUN apt-get -y install python$PYTHON_VERSION-dev wget \
+RUN apt-get -y install python$PYTHON_VERSION-dev wget unzip \
                        build-essential cmake git pkg-config libatlas-base-dev gfortran \
                        libjasper-dev libgtk2.0-dev libavcodec-dev libavformat-dev \
                        libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libv4l-dev
 RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 RUN pip install numpy
 
-RUN git clone https://github.com/Itseez/opencv.git
-RUN git clone https://github.com/Itseez/opencv_contrib.git
-RUN cd /opencv && git checkout 3.0.0
-RUN cd /opencv_contrib && git checkout 3.0.0
+RUN wget https://github.com/Itseez/opencv/archive/3.0.0.zip -O opencv3.zip && \
+    unzip -q opencv3.zip && mv /opencv-3.0.0 /opencv
+RUN wget https://github.com/Itseez/opencv_contrib/archive/3.0.0.zip -O opencv_contrib3.zip && \
+    unzip -q opencv_contrib3.zip && mv /opencv_contrib-3.0.0 /opencv_contrib
 RUN mkdir /opencv/build
 WORKDIR /opencv/build
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
