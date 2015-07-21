@@ -11,7 +11,7 @@ RUN apt-get -y install python$PYTHON_VERSION-dev wget unzip \
                        libjasper-dev libgtk2.0-dev libavcodec-dev libavformat-dev \
                        libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libv4l-dev
 RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
-RUN pip install numpy
+RUN pip install numpy matplotlib
 
 RUN wget https://github.com/Itseez/opencv/archive/3.0.0.zip -O opencv3.zip && \
     unzip -q opencv3.zip && mv /opencv-3.0.0 /opencv
