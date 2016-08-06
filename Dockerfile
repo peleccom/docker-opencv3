@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM nvidia/cuda:7.5-devel
 
 #3.4.3
 ENV PYTHON_VERSION 2.7
@@ -50,7 +50,9 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D BUILD_opencv_fuzzy=OFF \
 	-D BUILD_NEW_PYTHON_SUPPORT=ON \
 	-D WITH_IPP=OFF \
-	-D WITH_V4L=ON ..
+	-D WITH_V4L=ON \
+	-D WITH_CUDA=ON \
+	..
 RUN make -j$NUM_CORES
 RUN make install
 RUN ldconfig
