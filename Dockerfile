@@ -9,7 +9,7 @@ RUN apt-get -y update
 RUN apt-get -y install python$PYTHON_VERSION-dev wget unzip \
                        build-essential cmake git pkg-config libatlas-base-dev gfortran \
                        libjasper-dev libgtk2.0-dev libavcodec-dev libavformat-dev \
-                       libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libv4l-dev
+                       libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libv4l-dev python-qt4 python-matplotlib nano
 RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 RUN pip install numpy matplotlib
 
@@ -29,6 +29,5 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 RUN make -j$NUM_CORES
 RUN make install
 RUN ldconfig
-RUN apt-get install -y python-qt4 python-matplotlib nano
 # Define default command.
 CMD ["bash"]
