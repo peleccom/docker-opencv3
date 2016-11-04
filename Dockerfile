@@ -29,6 +29,6 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 RUN make -j$NUM_CORES
 RUN make install
 RUN ldconfig
-# Define default command.
 RUN apt-get install -y python-qt4 python-matplotlib nano
+# Define default command.
 CMD ["bash"]
